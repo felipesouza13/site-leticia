@@ -1,0 +1,279 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #FAF5EF; /* Bege Claro */
+  --foreground: #5B5B5B; /* Cinza Escuro */
+  --card: #FFFFFF;
+  --card-foreground: #5B5B5B;
+  --popover: #FFFFFF;
+  --popover-foreground: #5B5B5B;
+  --primary: #E76B7D; /* Rosa Escuro */
+  --primary-foreground: #FFFFFF;
+  --secondary: #F4AAB9; /* Rosa Médio */
+  --secondary-foreground: #5B5B5B;
+  --muted: #FADADD; /* Rosa Claro */
+  --muted-foreground: #8B5E3C; /* Marrom */
+  --accent: #8B5E3C; /* Marrom */
+  --accent-foreground: #FFFFFF;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #E5E5E5;
+  --input: #FFFFFF;
+  --ring: #E76B7D;
+  --chart-1: #E76B7D;
+  --chart-2: #F4AAB9;
+  --chart-3: #FADADD;
+  --chart-4: #8B5E3C;
+  --chart-5: #FAF5EF;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #5B5B5B;
+  --sidebar-primary: #E76B7D;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F4AAB9;
+  --sidebar-accent-foreground: #5B5B5B;
+  --sidebar-border: #E5E5E5;
+  --sidebar-ring: #E76B7D;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Fontes personalizadas */
+
+/* Estilos customizados para o site da psicóloga */
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #FAF5EF 0%, #FADADD 100%);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(231, 107, 125, 0.15);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #E76B7D, #8B5E3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.floating-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.section-padding {
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+
+/* Melhorias de responsividade */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Otimizações para mobile */
+@media (max-width: 768px) {
+  .hero-gradient {
+    padding: 2rem 1rem;
+  }
+  
+  .text-gradient {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .floating-whatsapp {
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .card-hover {
+    transform: none;
+  }
+  
+  .card-hover:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(231, 107, 125, 0.1);
+  }
+}
+
+/* Melhorias de acessibilidade */
+.focus-visible:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Animações suaves */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Melhorias para formulários */
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 3px rgba(231, 107, 125, 0.1);
+}
+
+/* Otimizações de performance */
+img {
+  max-width: 100%;
+  height: auto;
+  loading: lazy;
+}
+
+/* Melhorias para impressão */
+@media print {
+  .floating-whatsapp,
+  .btn-whatsapp,
+  nav,
+  footer {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
